@@ -2,7 +2,7 @@
 
 * OS: Ubuntu 25.10
 * 아키텍처: x86_64
-* 실행 환경: OrbStack Linux Machine  [OrbStack Linux Machine과 VM 차이](./Diff_LinuxMachine-VM)
+* 실행 환경: OrbStack Linux Machine  [OrbStack Linux Machine과 VM 차이](./Diff_LinuxMachine-VM.md)
 * 제공 애플리케이션: `agent-app-linux-x86`
 
 ---

@@ -202,6 +202,8 @@ uid=1002(agent-test) gid=1004(agent-test)
 groups=1004(agent-test),1000(agent-common)
 ```
 
+![그룹 확인](./screenshot/group_check.png)
+
 `agent-test`는 보안 영역인 `agent-core`에 포함하지 않고, `agent-admin`과 `agent-dev`만 포함하여 최소 권한 원칙을 적용하였다.
 
 ---
@@ -679,6 +681,8 @@ sudo tail -n 5 /var/log/agent-app/monitor.log
     copytruncate
 }
 ```
+
+![Logrotate](./screenshot/logrotate.png)
 
 설정 의미:
 

@@ -9,7 +9,7 @@
 
 OrbStack Linux Machine과 Docker/VM의 차이는 아래 문서에 별도로 정리하였다.
 
-[OrbStack Linux Machine과 VM 차이](./Diff_LinuxMachine-VM.md)
+[OrbStack Linux Machine과 VM 차이](./sub/Diff_LinuxMachine-VM.md)
 
 ---
 
@@ -55,6 +55,8 @@ sudo systemctl daemon-reload
 sudo systemctl restart ssh.socket
 ```
 
+![ssh 파일 설정](./screenshot/sshPort.png)
+
 설정 확인:
 
 ```bash
@@ -81,11 +83,15 @@ tcp LISTEN 0 4096 0.0.0.0:20022 0.0.0.0:* users:(("systemd",pid=1,...))
 tcp LISTEN 0 4096 [::]:20022    [::]:*    users:(("systemd",pid=1,...))
 ```
 
+![ssh 확인](./screenshot/ssh_check.png)
+
 이를 통해 SSH 서비스가 TCP 20022 포트에서 정상적으로 LISTEN 중이며 Root 원격 로그인이 차단되어 있음을 확인하였다.
 
 ---
 
 # 3. 방화벽 설정
+
+[Ufw와 firewalld 차이](./sub/UFW_vs_firewalld.md)
 
 Ubuntu의 UFW를 사용하여 외부에서 접근할 수 있는 인바운드 포트를 제한하였다.
 
@@ -124,6 +130,8 @@ To                         Action      From
 ```
 
 UFW가 활성화되어 있으며 필요한 두 포트만 인바운드 접근을 허용하도록 구성하였다.
+
+![UFW status확인](./screenshot/ufw_status.png)
 
 ---
 
@@ -506,9 +514,14 @@ LISTEN 0 1 0.0.0.0:15034 0.0.0.0:* users:(("agent-app-linux",pid=3072,...))
 
 따라서 애플리케이션이 `0.0.0.0:15034`에서 정상적으로 LISTEN 중임을 확인하였다.
 
+![agent-app 실행](./screenshot/agent-app-linux_exec.png)
+
 ---
 
 # 9. monitor.sh 구현
+
+
+[monitor.sh 커맨드 설명](./sub/monitor_commands.md)
 
 스크립트 위치:
 
@@ -567,6 +580,7 @@ agent-admin ALL=(root) NOPASSWD: /usr/sbin/ufw status
 
 ## monitor.sh 실행
 
+
 ```bash
 sudo -u agent-admin \
 /home/agent-admin/agent-app/bin/monitor.sh
@@ -603,6 +617,8 @@ CPU Usage : 100.0%
 [WARNING] CPU threshold exceeded (100.0% > 20%)
 ```
 
+![monitor.sh 실행](./screenshot/monitor_exec.png)
+
 ---
 
 # 10. 모니터링 로그 기록
@@ -635,6 +651,8 @@ sudo tail -n 5 /var/log/agent-app/monitor.log
 ```
 
 프로세스 ID와 CPU, 메모리, 디스크 사용률이 요구된 형식으로 정상 기록됨을 확인하였다.
+
+![monitor log 기록](./screenshot/monitor_log.png)
 
 ---
 
@@ -761,6 +779,8 @@ sudo -u agent-admin crontab -l
 ```
 
 와 같이 로그 기록이 계속 이어지는 것을 확인하였다.
+
+![crontab 확인](./screenshot/crontab.png)
 
 ---
 

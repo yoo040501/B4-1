@@ -12,6 +12,8 @@ OrbStack Linux Machine과 Docker/VM의 차이는 아래 문서에 별도로 정�
 [OrbStack Linux Machine과 VM 차이](./sub/Diff_LinuxMachine-VM.md)
 
 ---
+# (과제 목표)
+[과제목표](./sub/Linux_server_operation_core_concepts.md)
 
 # 2. SSH 보안 설정
 

@@ -749,6 +749,8 @@ sudo zcat /var/log/agent-app/monitor.log.1.gz
 
 # 12. Cron 자동 실행
 
+[Cron이란?](./sub/Cron_monitor_explanation.md)
+
 `monitor.sh`를 `agent-admin` 계정에서 매분 실행하도록 crontab에 등록하였다.
 
 ```bash
